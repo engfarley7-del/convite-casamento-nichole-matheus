@@ -103,7 +103,6 @@ export const GroomsmenPage: React.FC<GroomsmenPageProps> = ({ onNavigate }) => {
             {/* Color Swatch Circle */}
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-full bg-[#D1D5DB] border-2 border-white shadow-sm ring-1 ring-[#9CA3AF]" title="Cinza Claro" />
-              <div className="w-9 h-9 rounded-full bg-[#E5E7EB] border-2 border-white shadow-sm ring-1 ring-[#D1D5DB]" title="Cinza Suave" />
             </div>
           </div>
           <p className="text-xs text-[#5A463C]">
