@@ -1,0 +1,224 @@
+{
+  "settings": {
+    "coupleNames": "Nichole & Matheus",
+    "brideName": "Nichole",
+    "groomName": "Matheus",
+    "weddingDate": "2027-07-18",
+    "arrivalTime": "17:00",
+    "ceremonyTime": "17:30",
+    "locationName": "Sítio Aguilera",
+    "locationAddress": "Área Rural",
+    "googleMapsUrl": "https://maps.google.com/?q=Sitio+Aguilera",
+    "pixKey": "nichole.matheus@casamento2027.com.br",
+    "pixRecipient": "Nichole & Matheus (Chave E-mail)",
+    "groomsmenMessage": "Queremos vocês ao nosso lado nesse dia tão especial vivenciando cada segundo do nosso sonho!",
+    "groomsmenGuidelines": "Pedimos que os padrinhos cheguem pontualmente às 16h00 para nossas fotos protocolares e alinhamento do cortejo. Traje completo: calça jeans alinhada, bota country limpa, chapéu de cowboy, cinto com fivela e blazer cinza claro com gravata country.",
+    "groomsmenAttireColor": "Cinza Claro",
+    "bridesmaidsMessage": "Vocês sempre acompanharam a nossa caminhada de perto e agora queremos vocês iluminando o nosso altar como testemunhas do nosso grande amor!",
+    "bridesmaidsGuidelines": "Pedimos que as madrinhas cheguem pontualmente às 16h00 para nossas fotos oficiais e alinhamento do cortejo. Traje obrigatório: bota texana ou montaria com vestido longo fluido na paleta de cores que escolhemos (Pink ou Coral). Sem estampas.",
+    "palettes": {
+      "pink": {
+        "name": "Pink",
+        "enabled": true,
+        "colors": ["#EC008C", "#F50087", "#E3006C"]
+      },
+      "coral": {
+        "name": "Coral",
+        "enabled": true,
+        "colors": ["#F59306", "#FA6800", "#F2380F"]
+      }
+    },
+    "honorees": [
+      {
+        "id": "hon-1",
+        "slug": "delma-e-marlon",
+        "names": "Delma & Marlon",
+        "type": "couple",
+        "groomsmanColor": "Cinza Claro",
+        "bridesmaidColor": "pink",
+        "colorLabel": "Cinza Claro e Pink"
+      },
+      {
+        "id": "hon-2",
+        "slug": "grasielma-e-paulo",
+        "names": "Grasielma & Paulo",
+        "type": "couple",
+        "groomsmanColor": "Cinza Claro",
+        "bridesmaidColor": "pink",
+        "colorLabel": "Cinza Claro e Pink"
+      },
+      {
+        "id": "hon-3",
+        "slug": "keyla-e-welisson",
+        "names": "Keyla & Welisson",
+        "type": "couple",
+        "groomsmanColor": "Cinza Claro",
+        "bridesmaidColor": "coral",
+        "colorLabel": "Cinza Claro e Laranja (Coral)"
+      },
+      {
+        "id": "hon-4",
+        "slug": "ana-paula-e-rafael",
+        "names": "Ana Paula & Rafael",
+        "type": "couple",
+        "groomsmanColor": "Cinza Claro",
+        "bridesmaidColor": "coral",
+        "colorLabel": "Cinza Claro e Laranja (Coral)"
+      },
+      {
+        "id": "hon-5",
+        "slug": "fabiana-e-farley",
+        "names": "Fabiana & Farley",
+        "type": "couple",
+        "groomsmanColor": "Cinza Claro",
+        "bridesmaidColor": "coral",
+        "colorLabel": "Cinza Claro e Laranja (Coral)"
+      },
+      {
+        "id": "hon-6",
+        "slug": "suzi",
+        "names": "Suzi",
+        "type": "bridesmaid",
+        "bridesmaidColor": "pink",
+        "colorLabel": "Pink"
+      },
+      {
+        "id": "hon-7",
+        "slug": "nathally",
+        "names": "Náthally",
+        "type": "bridesmaid",
+        "bridesmaidColor": "coral",
+        "colorLabel": "Laranja (Coral)"
+      }
+    ],
+    "storyText": "Nossa história começou em 2003, no rol do berço da igrejinha adventista de madeira, em Nova Maringá – MT. Crescemos, fomos desbravadores juntos na adolescência e seguimos nossos caminhos, sem imaginar que Deus ainda tinha planos especiais para nós.\n\nAté que, em 28 de março de 2024, entre conversas, amigos e um tereré no lago, nossos caminhos se cruzaram de um jeito diferente. Afinal, depois de tantos anos dividindo a mesma história, estava na hora de descobrir que, além de companheiros de jornada, poderíamos ser companheiros para a vida inteira!\n\nEm 31 de agosto de 2024, dissemos nosso primeiro “sim”, o do namoro. E, em outubro de 2026, dissemos “sim” ao casamento, escolhendo construir nossa família com Deus à frente de cada passo.\n\nParece que Deus já tinha preparado tudo desde o começo… só esqueceu de nos contar! Agora, seguimos juntos, prontos para a maior aventura de todas: a vida a dois, com muito amor, fé e tereré pelo caminho."
+  },
+  "photos": {
+    "1": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.31__1__61f3a6a5.jpeg",
+    "2": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.32_2924fb9a.jpeg",
+    "3": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.40.54__1__bebc40e3.jpeg",
+    "4": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.31_ea73d53f.jpeg",
+    "5": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_21.31.21_75ed6f0d.jpeg",
+    "6": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.32__1__339b21b8.jpeg",
+    "7": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.31__1__61f3a6a5.jpeg",
+    "8": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.31__2__bd613319.jpeg",
+    "9": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.31_ea73d53f.jpeg",
+    "10": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.32_2924fb9a.jpeg",
+    "11": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.05.32__1__339b21b8.jpeg",
+    "12": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.40.54__1__bebc40e3.jpeg",
+    "13": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.40.54_bc12f0e1.jpeg",
+    "14": "/assets/aistudio/WhatsApp_Image_2026-11-16_at_20.40.54__2__887275bf.jpeg"
+  },
+  "gifts": [
+    {
+      "id": "gift-1",
+      "name": "Máquina de lavar roupa 13kg",
+      "icon": "washing-machine",
+      "category": "Eletrodomésticos",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-2",
+      "name": "Geladeira",
+      "icon": "refrigerator",
+      "category": "Eletrodomésticos",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-3",
+      "name": "Forno elétrico",
+      "icon": "microwave",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-4",
+      "name": "Air fryer",
+      "icon": "utensils",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-5",
+      "name": "Liquidificador",
+      "icon": "blender",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-6",
+      "name": "TV",
+      "icon": "tv",
+      "category": "Sala",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-7",
+      "name": "Batedeira",
+      "icon": "coffee",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-8",
+      "name": "Ventilador",
+      "icon": "wind",
+      "category": "Casa",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-9",
+      "name": "Panela de pressão elétrica",
+      "icon": "flame",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-10",
+      "name": "Ferro de passar roupa",
+      "icon": "shirt",
+      "category": "Casa",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-11",
+      "name": "Micro-ondas",
+      "icon": "zap",
+      "category": "Cozinha",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    },
+    {
+      "id": "gift-12",
+      "name": "Aspirador de pó",
+      "icon": "sparkles",
+      "category": "Casa",
+      "isChosen": false,
+      "reservedBy": null,
+      "reservedAt": null
+    }
+  ],
+  "rsvps": [],
+  "giftHistory": []
+}

@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-script: 'Great Vibes', cursive;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --color-pink-1: #EC008C;
+    --color-pink-2: #F50087;
+    --color-pink-3: #E3006C;
+    --color-coral-1: #F59306;
+    --color-coral-2: #FA6800;
+    --color-coral-3: #F2380F;
+  }
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Light Studio Stone & Warm Ivory Envelope Texture */
+.paper-texture {
+  background-color: #f0ebe7;
+  background-image:
+    radial-gradient(rgba(236, 0, 140, 0.05) 0.75px, transparent 0.75px),
+    radial-gradient(rgba(250, 104, 0, 0.06) 0.75px, #f0ebe7 0.75px);
+  background-size: 26px 26px;
+  background-position: 0 0, 13px 13px;
+}
+
+/* Signature Coral (Orange Tone) Wax Seal */
+.wax-seal {
+  background: radial-gradient(circle at 30% 28%, #FFB04F 0%, #FA6800 42%, #E34809 76%, #A82804 100%);
+  box-shadow:
+    0 8px 20px rgba(242, 56, 15, 0.36),
+    0 3px 8px rgba(250, 104, 0, 0.24),
+    inset 0 2px 5px rgba(255, 240, 219, 0.48),
+    inset 0 -3px 6px rgba(128, 30, 4, 0.48);
+}
+
+/* Pink & Coral Primary CTA Gradient (AA contrast with white text) */
+.btn-pink-coral {
+  background: linear-gradient(135deg, #C80064 0%, #E0284F 52%, #E65500 100%);
+  color: #FFFFFF;
+}
+
+.btn-pink-coral:hover {
+  background: linear-gradient(135deg, #B00058 0%, #C92044 52%, #CF4A00 100%);
+}
+
+/* Custom smooth scrollbar in Pink-Coral tone */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f2ece9;
+}
+::-webkit-scrollbar-thumb {
+  background: #df9cb7;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c80064;
+}
