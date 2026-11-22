@@ -26,7 +26,7 @@ import confetti from 'canvas-confetti';
 export const GiftsPage: React.FC = () => {
   const { settings, gifts, reserveGift } = useWedding();
 
-  const [filterTab, setFilterTab] = useState<'all' | 'available'>('all');
+  const [filterTab, setFilterTab] = useState<'all' | 'available'>('available');
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [guestName, setGuestName] = useState<string>('');
   const [step, setStep] = useState<'form' | 'confirm' | 'success'>('form');
@@ -306,7 +306,7 @@ export const GiftsPage: React.FC = () => {
             </span>
             <p className="text-xs text-[#6B534B] mt-0.5 tabular-nums">
               <strong className="text-[#C80064] font-bold">{chosenGiftsCount}</strong> de{' '}
-              <strong className="text-[#3D2C24] font-bold">{totalGifts}</strong> presentes já escolhidos
+              <strong className="text-[#3D2C24] font-bold">{totalGifts}</strong> presentes já presenteados
             </p>
             {/* Progress bar */}
             <div className="w-full sm:w-48 h-2 bg-[#F2E6EA] rounded-full overflow-hidden mt-2">
@@ -365,7 +365,7 @@ export const GiftsPage: React.FC = () => {
                     {gift.name}
                   </h3>
                   <div className="mt-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FDF3F7] border border-[#F2C6D8] text-[#B8005C] font-serif font-bold text-[11px] shadow-2xs">
-                    <span>Já escolhido</span>
+                    <span>Já presenteado</span>
                     <span>💛</span>
                   </div>
                   {/* ZERO BUTTONS on chosen cards per requirement */}

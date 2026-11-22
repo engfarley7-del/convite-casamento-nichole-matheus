@@ -251,16 +251,10 @@ export const WeddingProvider: React.FC<{ children: React.ReactNode }> = ({ child
       });
 
       if (!isJsonResponse(res)) {
-        // Static fallback if deployed without backend API
-        if (res.status === 404 || res.headers.get('content-type')?.includes('text/html')) {
-          setGifts((prev) =>
-            prev.map((g) => (g.id === giftId ? { ...g, isChosen: true } : g))
-          );
-          return {
-            success: true,
-            message: 'Muito obrigado por nos presentear!',
-          };
-        }
+        return {
+          success: false,
+          message: 'Não foi possível salvar sua escolha agora. Tente novamente em instantes.',
+        };
       }
 
       const data = await res.json();
