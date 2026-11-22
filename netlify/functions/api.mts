@@ -238,7 +238,7 @@ export default async (req: Request, context: Context) => {
       }
 
       if (method === 'POST' && a[0] === 'presentes' && a[2] === 'marcar') {
-        const guestName = String((await body(req)).guestName || 'Reserva manual (Admin)').trim();
+        const guestName = String((await body(req)).guestName || 'Presente marcado pelo admin').trim();
         const out = await mutate<any>((data) => {
           const gift = (data.gifts || []).find((g) => g.id === a[1]);
           if (!gift) return { result: null, save: false };

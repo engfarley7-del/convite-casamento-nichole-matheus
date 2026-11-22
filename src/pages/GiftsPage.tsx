@@ -532,7 +532,7 @@ export const GiftsPage: React.FC = () => {
                       disabled={isSubmitting}
                       className="w-full py-3.5 px-4 btn-pink-coral font-serif font-bold text-sm rounded-xl shadow-md transition-all active:scale-[0.98] disabled:opacity-50"
                     >
-                      {isSubmitting ? 'Confirmando reserva...' : 'Sim, Confirmar Presente'}
+                      {isSubmitting ? 'Salvando presente...' : 'Sim, Confirmar Presente'}
                     </button>
 
                     <button
@@ -555,7 +555,7 @@ export const GiftsPage: React.FC = () => {
                   </div>
 
                   <h3 className="font-serif font-bold text-xl text-[#3D2C24]">
-                    Presente Reservado!
+                    Presente Confirmado!
                   </h3>
 
                   <p className="font-sans text-sm text-[#5A463C] leading-relaxed">

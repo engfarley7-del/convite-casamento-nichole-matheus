@@ -52,6 +52,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
     adminMarkGift,
     adminAddGift,
     adminDeleteGift,
+    adminUpdateGift,
     adminUpdateSettings,
     adminUploadPhoto,
     adminDeletePhoto,
@@ -168,6 +169,9 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
       fileInputRef.current.click();
     }
   };
+
+  const [editingGiftId, setEditingGiftId] = useState<string | null>(null);
+  const [editGiftForm, setEditGiftForm] = useState<{ name: string; category: string }>({ name: '', category: '' });
 
   // Handle image file selection
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -856,7 +860,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                   Gerenciamento da Lista de Presentes
                 </h2>
                 <p className="text-xs text-[#785E54]">
-                  Visualize os nomes de quem reservou, libere presentes ou marque manualmente.
+                  Veja quem presenteou, edite a lista, libere presentes ou marque como presenteado manualmente.
                 </p>
               </div>
 
@@ -890,8 +894,8 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                       <th className="p-3.5">Item</th>
                       <th className="p-3.5">Categoria</th>
                       <th className="p-3.5">Status</th>
-                      <th className="p-3.5">Reservado Por</th>
-                      <th className="p-3.5">Data Reserva</th>
+                      <th className="p-3.5">Presenteado por</th>
+                      <th className="p-3.5">Data</th>
                       <th className="p-3.5 text-right">Ações</th>
                     </tr>
                   </thead>
@@ -899,15 +903,33 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                     {adminGifts.map((gift) => (
                       <tr key={gift.id} className="hover:bg-[#FDF4F7]/50">
                         <td className="p-3.5 font-bold text-[#3D2C24]">
-                          {gift.name}
+                          {editingGiftId === gift.id ? (
+                            <input
+                              type="text"
+                              value={editGiftForm.name}
+                              onChange={(e) => setEditGiftForm({ ...editGiftForm, name: e.target.value })}
+                              className="px-2 py-1 bg-white border border-[#EAD4DC] rounded text-[11px] w-full min-w-[140px]"
+                            />
+                          ) : (
+                            gift.name
+                          )}
                         </td>
                         <td className="p-3.5 text-[#785E54]">
-                          {gift.category || 'Casa'}
+                          {editingGiftId === gift.id ? (
+                            <input
+                              type="text"
+                              value={editGiftForm.category}
+                              onChange={(e) => setEditGiftForm({ ...editGiftForm, category: e.target.value })}
+                              className="px-2 py-1 bg-white border border-[#EAD4DC] rounded text-[11px] w-24"
+                            />
+                          ) : (
+                            gift.category || 'Casa'
+                          )}
                         </td>
                         <td className="p-3.5">
                           {gift.isChosen ? (
                             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FDF1F6] text-[#B8005C] font-bold border border-[#F2C6D8]">
-                              Escolhido 💛
+                              Presenteado 💛
                             </span>
                           ) : (
                             <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold border border-emerald-200">
@@ -950,7 +972,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                               />
                               <button
                                 onClick={() => {
-                                  const donor = manualDonorName[gift.id] || 'Reserva manual (Admin)';
+                                  const donor = manualDonorName[gift.id] || 'Presente marcado pelo admin';
                                   adminMarkGift(gift.id, donor);
                                 }}
                                 className="px-2 py-1 btn-pink-coral rounded font-serif font-bold"
@@ -960,8 +982,45 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                             </div>
                           )}
 
+                          {editingGiftId === gift.id ? (
+                            <>
+                              <button
+                                onClick={async () => {
+                                  if (!editGiftForm.name.trim()) return;
+                                  await adminUpdateGift(gift.id, {
+                                    name: editGiftForm.name.trim(),
+                                    category: editGiftForm.category.trim() || 'Casa',
+                                  });
+                                  setEditingGiftId(null);
+                                }}
+                                className="px-2 py-1 bg-emerald-600 text-white rounded font-serif font-bold"
+                              >
+                                Salvar
+                              </button>
+                              <button
+                                onClick={() => setEditingGiftId(null)}
+                                className="px-2 py-1 bg-[#F0E6EA] text-[#785E54] rounded font-serif font-bold"
+                              >
+                                Cancelar
+                              </button>
+                            </>
+                          ) : (
+                            <button
+                              onClick={() => {
+                                setEditingGiftId(gift.id);
+                                setEditGiftForm({ name: gift.name, category: gift.category || 'Casa' });
+                              }}
+                              className="px-2 py-1 bg-[#F4EAEF] text-[#B8005C] rounded font-serif font-bold"
+                              title="Editar nome e categoria"
+                            >
+                              Editar
+                            </button>
+                          )}
+
                           <button
-                            onClick={() => adminDeleteGift(gift.id)}
+                            onClick={() => {
+                              if (window.confirm(`Excluir "${gift.name}" da lista?`)) adminDeleteGift(gift.id);
+                            }}
                             className="p-1.5 text-red-600 hover:bg-red-50 rounded"
                             title="Excluir item"
                           >
@@ -979,7 +1038,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
             {adminHistory.length > 0 && (
               <div className="bg-[#FAF5F4] border border-[#EFE0E5] rounded-2xl p-4 shadow-xs space-y-2">
                 <span className="text-xs font-serif font-bold text-[#3D2C24] block">
-                  Histórico Recente de Reservas e Liberações
+                  Histórico de Presentes (escolhas e liberações)
                 </span>
                 <div className="max-h-40 overflow-y-auto space-y-1 text-[11px] text-[#785E54]">
                   {adminHistory.slice().reverse().map((h, i) => (
@@ -987,9 +1046,9 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                       <span>
                         <strong>
                           {h.action === 'RESERVE'
-                            ? 'Reserva:'
+                            ? 'Presenteado:'
                             : h.action === 'ADMIN_MANUAL_RESERVE'
-                              ? 'Reserva manual:'
+                              ? 'Marcado pelo admin:'
                               : 'Liberação:'}
                         </strong>{' '}
                         {h.giftName}{' '}
