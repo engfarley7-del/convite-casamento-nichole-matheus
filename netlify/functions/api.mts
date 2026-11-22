@@ -48,11 +48,17 @@ async function mutate<T>(
 }
 
 // ---------- Auth ----------
+function adminCredentials() {
+  // Support both the Netlify runtime and Node's function environment.
+  const user = (Netlify.env.get('ADMIN_USERNAME') || process.env.ADMIN_USERNAME)?.trim().toLowerCase();
+  const pass = (Netlify.env.get('ADMIN_PASSWORD') || process.env.ADMIN_PASSWORD)?.trim();
+  return user && pass ? { user, pass } : null;
+}
+
 function expectedToken(): string | null {
-  const user = Netlify.env.get('ADMIN_USERNAME');
-  const pass = Netlify.env.get('ADMIN_PASSWORD');
-  if (!user || !pass) return null;
-  return createHash('sha256').update(`nm-admin:${user.trim().toLowerCase()}:${pass.trim()}`).digest('hex');
+  const credentials = adminCredentials();
+  if (!credentials) return null;
+  return createHash('sha256').update(`nm-admin:${credentials.user}:${credentials.pass}`).digest('hex');
 }
 
 function safeEqual(a: string, b: string) {
@@ -170,8 +176,7 @@ export default async (req: Request, context: Context) => {
       const b = await body(req);
       const login = String(b.login || b.email || b.username || '').trim().toLowerCase();
       const password = String(b.password || '').trim();
-      const user = Netlify.env.get('ADMIN_USERNAME')!.trim().toLowerCase();
-      const pass = Netlify.env.get('ADMIN_PASSWORD')!.trim();
+      const { user, pass } = adminCredentials()!;
       if (safeEqual(login, user) && safeEqual(password, pass)) {
         return json({ token, user: { username: user, name: 'Nichole & Matheus (Administrador)' } });
       }
