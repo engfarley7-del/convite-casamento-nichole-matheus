@@ -982,14 +982,25 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                   Histórico Recente de Reservas e Liberações
                 </span>
                 <div className="max-h-40 overflow-y-auto space-y-1 text-[11px] text-[#785E54]">
-                  {adminHistory.slice(-10).reverse().map((h, i) => (
+                  {adminHistory.slice().reverse().map((h, i) => (
                     <div key={i} className="flex items-center justify-between py-1 border-b border-[#EFE0E5]">
                       <span>
-                        <strong>{h.action === 'RESERVE' ? 'Reserva:' : 'Liberação:'}</strong>{' '}
-                        {h.giftName} {h.guestName ? `por ${h.guestName}` : ''}
+                        <strong>
+                          {h.action === 'RESERVE'
+                            ? 'Reserva:'
+                            : h.action === 'ADMIN_MANUAL_RESERVE'
+                              ? 'Reserva manual:'
+                              : 'Liberação:'}
+                        </strong>{' '}
+                        {h.giftName}{' '}
+                        {h.guestName
+                          ? `por ${h.guestName}`
+                          : (h as any).previousDonor
+                            ? `(era de ${(h as any).previousDonor})`
+                            : ''}
                       </span>
                       <span className="text-[#9E8B80]">
-                        {new Date(h.timestamp).toLocaleTimeString('pt-BR')}
+                        {new Date(h.timestamp).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
                       </span>
                     </div>
                   ))}

@@ -217,6 +217,12 @@ export const WeddingProvider: React.FC<{ children: React.ReactNode }> = ({ child
         fetch('/api/admin/presenca', { headers }),
       ]);
 
+      if (giftsRes.status === 401 || rsvpsRes.status === 401) {
+        localStorage.removeItem('nm_admin_token');
+        setAdminToken(null);
+        return;
+      }
+
       if (isJsonResponse(giftsRes)) {
         const data = await giftsRes.json();
         setAdminGifts(data.gifts || []);
@@ -234,6 +240,18 @@ export const WeddingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   useEffect(() => {
     refreshPublicData();
   }, [refreshPublicData]);
+
+  // Painel admin: atualiza sozinho (a cada 30s e ao voltar para a aba) para mostrar novas escolhas e confirmações
+  useEffect(() => {
+    if (!adminToken) return;
+    const timer = setInterval(refreshAdminData, 30000);
+    const onFocus = () => refreshAdminData();
+    window.addEventListener('focus', onFocus);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('focus', onFocus);
+    };
+  }, [adminToken, refreshAdminData]);
 
   useEffect(() => {
     if (adminToken) {

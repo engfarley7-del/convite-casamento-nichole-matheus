@@ -20,7 +20,13 @@ async function loadData(): Promise<{ data: WeddingData; etag?: string }> {
   if (entry === null) {
     return { data: structuredClone(seed) as WeddingData };
   }
-  return { data: entry.data as WeddingData, etag: entry.etag };
+  // Dados salvos sempre vencem. Campos novos adicionados ao seed depois entram como padrão,
+  // sem sobrescrever nada que já foi preenchido.
+  const stored = entry.data as WeddingData;
+  const seeded = seed as unknown as WeddingData;
+  stored.settings = { ...seeded.settings, ...stored.settings };
+  stored.photos = { ...seeded.photos, ...stored.photos };
+  return { data: stored, etag: entry.etag };
 }
 
 // Grava com controle de versão (etag) para não perder reservas simultâneas.
